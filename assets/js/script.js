@@ -12,3 +12,8 @@ fetch(cryptoAPI)
     console.log(data);
     console.log(data[0].name);
 })
+
+// Event Listeners for the form
+$("#userInput").on('submit', function() {
+    alert('this submission works');
+})
