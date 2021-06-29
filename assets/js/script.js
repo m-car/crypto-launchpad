@@ -1,10 +1,14 @@
-//https://www.coingecko.com/en/api#explore-api
-var cryptoAPI = "https://coingecko.com/api/documentations/v3";
-console.log("log test")
-// fetch(cryptoAPI , function(response){
-//     return response.json();
-// })
-// .then(function(data){
-//     console.log(data);
-// })
-fetch('https://api.github.com/repos/nodejs/node/issues?per_page=5').then(function(response){console.log(response)});
+
+console.log(document);
+// var cryptoAPI = "https://api.coingecko.com/api/v3/coins/list"; HUMONGOUS LIST 
+var cryptoAPI = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"; //list of  coinmarkets for USD currency
+
+fetch(cryptoAPI)
+.then(function(response){
+   console.log(response.status);
+   return response.json();
+})
+.then(function(data){
+    console.log(data);
+    console.log(data[0].name);
+})
