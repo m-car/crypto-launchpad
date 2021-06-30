@@ -1,5 +1,6 @@
 
 console.log(document);
+console.log(document.body)
 // var cryptoAPI = "https://api.coingecko.com/api/v3/coins/list"; HUMONGOUS LIST 
 var cryptoAPI = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd"; //list of  coinmarkets for USD currency
 
@@ -43,10 +44,38 @@ fetch(queryURL)
     console.log(data);
     console.log(data.response.docs[0].headline.main);
     console.log(data.response.docs[0].abstract)  //    WORKING SEARCH 
-    $(".news-feed").html("<h1>" + data.response.docs[0].headline.main + "</h1>");
-    $(".news-feed").text( data.response.docs[0].abstract);
+
+    $(".news-feed #heading").text(data.response.docs[0].headline.main);
+    $(".news-feed #abstract").text(data.response.docs[0].abstract);
+    $(".news-feed #newsLink").text(data.response.docs[0].web_url);
+
+
 })
 
+
+// GET NEWS FUNCTION TO BE CALLED WHEN SEARCH IS EXECUTED 
+// function getNews(search){
+
+// var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search + "&api-key="+ newsKEY;
+
+//     //NY Times Fetch
+//     fetch(queryURL)
+//     .then(function(response){
+//         console.log(response)
+//         return response.json();
+//     })
+//     .then(function(data){
+//         console.log(data);
+//         console.log(data.response.docs[0].headline.main);
+//         console.log(data.response.docs[0].abstract)  //    WORKING SEARCH 
+//         var newsHeadline = document.createElement("h2");
+//         newsHeadline = data.response.docs[0].headline.main;
+//         $(".news-feed").appendchild(newsHeadline);
+//         $(".news-feed").text( data.response.docs[0].headline.main);
+//         // $(".news-feed").text( data.response.docs[0].abstract);
+//     })
+
+// }
 
 var userSearchEl = document.getElementById('userSearch');
 function redirectWithSearch() {
