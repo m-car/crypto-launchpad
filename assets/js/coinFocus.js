@@ -30,6 +30,8 @@ function appendData(data) {
     var atl = data.market_data.atl.usd;
     var athChange = data.market_data.ath_change_percentage.usd.toFixed(3);
     var atlChange = data.market_data.atl_change_percentage.usd.toFixed(3);
+    var imageSource = data.image.large;
+    $('#coinImage').attr('src', imageSource);
     $('#coin-name').text(coinName);
     $('#description').text(description);
     $('#price').text("Current Price: " + price);
@@ -51,4 +53,6 @@ function getSearch() {
     fetchCoin(cryptoAPI)
 }
 
-getSearch();
+document.ready() {
+    getSearch();
+}
