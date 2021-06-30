@@ -12,3 +12,14 @@ fetch(cryptoAPI)
     console.log(data);
     console.log(data[0].name);
 })
+
+// Event Listeners for the form
+$("#userInput").on('submit', function() {
+    alert('this submission works');
+    // Functions to search specific coin go here
+});
+
+$("#pullAllBtn").on('click', function() {
+    alert('this button works')
+    // Functions to pull all coins go here
+}); 

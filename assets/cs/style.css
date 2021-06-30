@@ -1,3 +1,7 @@
 .customPadding {
     padding-right: 10%;
 }
+
+.customInline {
+    display: inline;
+}
