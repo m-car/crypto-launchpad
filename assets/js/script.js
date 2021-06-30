@@ -23,3 +23,14 @@ $("#pullAllBtn").on('click', function() {
     alert('this button works')
     // Functions to pull all coins go here
 }); 
+
+var newsAPI = "https://bing-news-search1.p.rapidapi.com/news/search?q=%3CREQUIRED%3E&safeSearch=Off&textFormat=Raw&freshness=Day"
+fetch(newsAPI)
+.then(function(response){
+   console.log(response.status);
+   return response.json();
+})
+.then(function(data){
+    console.log(data);
+    console.log(data[0].name);
+})
