@@ -31,18 +31,20 @@ function appendData(data) {
     var athChange = data.market_data.ath_change_percentage.usd.toFixed(3);
     var atlChange = data.market_data.atl_change_percentage.usd.toFixed(3);
     var imageSource = data.image.large;
+    var priceChange1y = data.market_data.price_change_percentage_1y_in_currency.usd.toFixed(3);
     $('#coinImage').attr('src', imageSource);
     $('#coin-name').text(coinName);
     $('#description').text(description);
-    $('#price').text("Current Price: " + price);
-    $('#high24').text("Highest in the last 24 hours: " + high24);
-    $('#low24').text("Lowest in the last 24 hours: " + low24);
+    $('#price').text("Current Price: $" + price);
+    $('#high24').text("Highest in the last 24 hours: $" + high24);
+    $('#low24').text("Lowest in the last 24 hours: $" + low24);
     $('#marketCap').text("Market Cap: " + marketCap);
-    $('#priceChange1h').text("Price Change(%) in the last hour: " + priceChange1h);
-    $('#ath').text("All time high: " + ath);
-    $('#athChange').text("All time low: " + atl);
-    $('#atl').text("All time high change(%): " + athChange);
-    $('#atlChange').text("All time low change(%): " + atlChange);
+    $('#priceChange1h').text("Price Change in the last hour: $" + priceChange1h);
+    $('#ath').text("All time high: $" + ath);
+    $('#atl').text("All time low: $" + atl);
+    $('#athChange').text("All time high change: " + athChange + "%");
+    $('#atlChange').text("All time low change: " + atlChange + "%");
+    $('#priceChange1y').text("Price Change in one year: " + priceChange1y);
 }
 
 function getSearch() {
@@ -53,6 +55,4 @@ function getSearch() {
     fetchCoin(cryptoAPI)
 }
 
-document.ready() {
-    getSearch();
-}
+getSearch();
