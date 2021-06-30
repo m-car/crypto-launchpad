@@ -2,13 +2,21 @@ function fetchCoin(link) {
     fetch(link)
     .then(function(response){
         console.log(response.status);
-        return response.json();
+        if(response.ok){
+            response.json().then(function(data){
+                console.log(data);
+                appendData(data)
+        })
+        } else {
+            UIkit.modal('#modal-center').show();
+        }
     })
-    .then(function(data){
-            console.log(data);
-            appendData(data)
-    })
+
 }
+
+$('#modalClose').on('click', function() {
+    window.location.replace('./index.html');
+})
 
 function appendData(data) {
     var coinName = data.name;
