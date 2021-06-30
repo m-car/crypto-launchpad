@@ -21,9 +21,10 @@ fetch(cryptoAPI)
 })
 
 // Event Listeners for the form
-$("#userInput").on('submit', function() {
-    alert('this submission works');
+$("#userInput").on('submit', function(event) {
+    event.preventDefault();
     // Functions to search specific coin go here
+    redirectWithSearch();
 });
 
 $("#pullAllBtn").on('click', function() {
@@ -45,3 +46,14 @@ fetch(queryURL)
     $(".news-feed").html("<h1>" + data.response.docs[0].headline.main + "</h1>");
     $(".news-feed").text( data.response.docs[0].abstract);
 })
+
+
+var userSearchEl = document.getElementById('userSearch');
+function redirectWithSearch() {
+    var search = userSearchEl.value.trim();
+    if (search) {
+        window.location.replace("./coin-focus.html?userSearch=" + search)
+    } else {
+        //some kind of modal asking the user to input an actual value
+    }
+}
