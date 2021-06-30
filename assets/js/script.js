@@ -14,23 +14,23 @@ fetch(cryptoAPI)
 })
 
 // Event Listeners for the form
-$("#userInput").on('submit', function() {
-    alert('this submission works');
+$("#userInput").on('submit', function(event) {
+    event.preventDefault();
     // Functions to search specific coin go here
+    redirectWithSearch();
 });
 
 $("#pullAllBtn").on('click', function() {
     alert('this button works')
     // Functions to pull all coins go here
-}); 
+});
 
-var newsAPI = "https://bing-news-search1.p.rapidapi.com/news/search?q=%3CREQUIRED%3E&safeSearch=Off&textFormat=Raw&freshness=Day"
-fetch(newsAPI)
-.then(function(response){
-   console.log(response.status);
-   return response.json();
-})
-.then(function(data){
-    console.log(data);
-    console.log(data[0].name);
-})
+var userSearchEl = document.getElementById('userSearch');
+function redirectWithSearch() {
+    var search = userSearchEl.value.trim();
+    if (search) {
+        window.location.replace("./coin-focus.html?userSearch=" + search)
+    } else {
+        //some kind of modal asking the user to input an actual value
+    }
+}
