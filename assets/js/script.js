@@ -30,5 +30,7 @@ function redirectWithSearch() {
     var search = userSearchEl.value.trim();
     if (search) {
         window.location.replace("./coin-focus.html?userSearch=" + search)
+    } else {
+        //some kind of modal asking the user to input an actual value
     }
 }
