@@ -44,19 +44,16 @@ fetch(queryURL)
     console.log(data);
     console.log(data.response.docs[0].headline.main);
     console.log(data.response.docs[0].abstract)  //    WORKING SEARCH 
-    var newsHeadline = document.createElement("h1");
-    newsHeadline = data.response.docs[0].headline.main;
-    // $(".news-feed").append(newsHeadline);
-    // console.log(document.body.firstElementChild.lastElementChild); //DOM for News Section
-   
+
+    $(".news-feed #heading").text(data.response.docs[0].headline.main);
+    $(".news-feed #abstract").text(data.response.docs[0].abstract);
+    $(".news-feed #newsLink").text(data.response.docs[0].web_url);
 
 
-    // $(".news-feed").html("<h1>" + data.response.docs[0].headline.main + "</h1>");
-    // $(".news-feed").append().text( data.response.docs[0].abstract);
 })
 
 
-
+// GET NEWS FUNCTION TO BE CALLED WHEN SEARCH IS EXECUTED 
 // function getNews(search){
 
 // var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search + "&api-key="+ newsKEY;
