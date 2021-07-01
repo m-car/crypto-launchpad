@@ -11,19 +11,27 @@ var newsKEY = "FsNfuAVsAFoZ1i8vqo2WS22juPus8BzV"
 // API KEY secret: 	RIirBciqCEPeBlFZ
 var newsAPI ="https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key="+ newsKEY
 
+function getRandom(max){
+    return Math.floor(Math.random() * max );
+}
+
+
 // Coin Gecko Fetch
-fetch(cryptoAPI)
+var trending = fetch(cryptoAPI)
 .then(function(response){
    console.log(response.status); //status ok
    return response.json();
 })
 .then(function(data){
     console.log(data); //large list
-    console.log(data[0].name); //first coin name BITCOIN
-})
-
-
-
+   var trending = [];
+   for (var i = 0; i < data.length && i <10; i++){
+       trending.push(data[i].id);
+    }
+    console.log(trending.length); 
+    getNews(trending[getRandom(trending.length)]) ;
+    return trending;
+});
 
 
 
@@ -52,9 +60,9 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + s
     })
 
 }
-//TODO: find "trending" , display on page load
-//on page load. For testing
-getNews("dogecoin");
+
+
+
 
 // defines function called in the submission event listener
 // redirects to coin specific page with query string carrying user input
