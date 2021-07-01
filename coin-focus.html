@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./assets/cs/style.css"/>
 </head>
 <body>
+    <!-- Nav -->
     <div class="uk-position-relative">
 
         <nav class="uk-navbar-container customPadding" uk-navbar="dropbar: true">
@@ -20,7 +21,7 @@
                         <a href="./index.html">Home</a>
                     </li>
                     <li>
-                        <a href="#coin-list">Coin List</a>
+                        <a href="./index.html#coinList">Coin List</a>
                     </li>
                     <li>
                         <a href="#news">News Feed</a>
@@ -43,9 +44,10 @@
             </div>
         </nav>
     </div>
-    <div class="uk-child-width-1-2@m" uk-grid>
+    <!-- Coin Card -->
+    <div class="uk-child-width-1-2@m uk-margin-bottom" uk-grid>
         <div>
-            <div class="uk-card uk-card-default">
+            <div class="uk-card uk-card-default uk-card-hover">
                 <div class="uk-card-media-top">
                     <img id="coinImage" src="#" alt="coin logo" class="uk-align-center">
                 </div>
@@ -72,13 +74,20 @@
             </div>
         </div>
     </div>
+    <!-- News Card -->
+    <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom uk-width-1-2@m">
+        <section id="news" class = "news-feed">
+            <h2 id="heading"></h2>
+            <p id="abstract"></p>
+            <a id="newsLink" href=""></a>
+        </section>
+    </div>
     <div id="modal-center" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 
             <button id="modalClose" class="uk-modal-close-default" type="button" uk-close></button>
 
-            <p>Oh no! We're sorry, we couldn't find that coin.</p>
-
+            <p>Oh no! We're sorry, we couldn't find that coin. Try searching the coin's ID, some have a different ID than their common name.</p>
         </div>
     </div>
     <script
@@ -88,7 +97,7 @@
   ></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit-icons.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<!-- <script src="./assets/js/script.js"></script> -->
 <script src="./assets/js/coinFocus.js"></script>
 </body>
 </html>
