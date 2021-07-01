@@ -86,7 +86,6 @@ function redirectWithSearch() {
     if (search) {
         window.location.replace("./coin-focus.html?userSearch=" + search)
     } else {
-        alert('somethings wrong')
         //some kind of modal asking the user to input an actual value
     }
 }

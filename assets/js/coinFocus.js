@@ -57,7 +57,40 @@ function getSearch() {
     console.log(userSearch)
     console.log(userSearch)
     var cryptoAPI = "https://api.coingecko.com/api/v3/coins/" + userSearch + "?localization=false&tickers=true&market_data=true&community_data=true&developer_data=false&sparkline=false"
-    fetchCoin(cryptoAPI)
+    fetchCoin(cryptoAPI);
+    getNews(userSearch);
+}
+
+var newsKEY = "FsNfuAVsAFoZ1i8vqo2WS22juPus8BzV"
+
+function getNews(search){
+
+var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search + "&api-key="+ newsKEY;
+
+    //NY Times Fetch
+    fetch(queryURL)
+    .then(function(response){
+        console.log(response.status);
+        if(response.ok){
+            response.json().then(function(data){
+                console.log(data);
+                appendNews(data);
+        })
+        } else {
+            alert('sunmtin wong');
+        }
+    })
+
+}
+
+function appendNews (data) {
+    var headline = data.response.docs[0].headline.main
+    var abstract = data.response.docs[0].abstract
+    var newsLink = data.response.docs[0].web_url
+    $('#heading').text(headline)
+    $('#abstract').text(abstract)
+    $('#newsLink').text(newsLink)
+    $('#newsLink').attr('href', newsLink);
 }
 
 // runs the function to start the cascade of 
