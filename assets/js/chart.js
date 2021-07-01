@@ -26,9 +26,9 @@ function setup(){
 		.then(function(feature){
 			console.log(feature);	
 
-			$("#current-price").text(" " + feature.name);
+			$("#trending-coin").text(" " + feature.name);
 
-			var randomColor = ["rgb(252,250,100)", "rgb(79,167,230)",];
+			var randomColor = ["rgb(252,250,100)", "rgb(79,167,230)", "rgb(176,23,41)", "rgb(24,159,118)", "rgb(162,118,255)"];
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx,{
 				
@@ -57,9 +57,9 @@ function setup(){
 			});
 		}) 
 	}) 
-}	
-	
-	
+}
+
+
 	
 	
 	
