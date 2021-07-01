@@ -26,6 +26,8 @@ function setup(){
 		.then(function(feature){
 			console.log(feature);	
 
+			$("#current-price").text(" " + feature.name);
+
 			var randomColor = ["rgb(252,250,100)", "rgb(79,167,230)",];
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx,{
