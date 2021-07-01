@@ -5,3 +5,9 @@
 .customInline {
     display: inline;
 }
+
+@media screen and (min-width: 960px){
+    #search-graph-container {
+        display: flex;
+    }
+}
