@@ -77,7 +77,13 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + s
                 appendNews(data);
         })
         } else {
-            alert('sunmtin wong');
+            var appendBlock = 
+            `
+            <div class="uk-alert-danger" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>It looks like we couldn't find any news related to this coin.</p>
+</div>`;
+        $("#news").append(appendBlock);
         }
     })
 
