@@ -7,7 +7,7 @@
 }
 
 .card {
-    background-color: rgb(92, 92, 92);
+    background-color: rgb(128, 128, 128);
     display: grid;
     grid-template-columns: 100px auto;
     grid-template-rows: auto auto auto;
