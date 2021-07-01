@@ -28,7 +28,6 @@ function setup(){
 
 			$("#trending-coin").text(" " + feature.name);
 
-			var randomColor = ["rgb(252,250,100)", "rgb(79,167,230)", "rgb(176,23,41)", "rgb(24,159,118)", "rgb(162,118,255)"];
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx,{
 				
@@ -39,9 +38,9 @@ function setup(){
 						{
 							label: 'Market Cap',
 							data: [feature.market_data.market_cap.usd],
-							backgroundColor:"rgb(252,250,100)",
+							backgroundColor: "rgb(252,250,100)",
 							borderColor: "rgb(252,250,100)",
-							borderDash: [5, 5],
+							barPercentage: 0.5,
 						
 
 						}, {
@@ -49,11 +48,47 @@ function setup(){
 							data: [feature.market_data.total_volume.usd],
 							backgroundColor: "rgb(79,167,230)",
 							borderColor: "rgb(79,167,230)", 
-							borderWidth: 4
+							borderWidth: 4,
+							barPercentage: 0.5,
 						}
 
 					]
-				},			
+				},
+				options: {
+					responsive: true,
+					scales: {
+					  x: {
+						 color: "rgb(227,218,226)",
+						 title: {
+							display: true,
+							text: 'Market Data',
+							color: "rgb(227,218,226)",
+							font: {
+							  family: 'Rubik',
+							  size: 20,
+							  weight: 'bold',
+							  lineHeight: 1.2,
+							},
+							padding: {top: 20, left: 0, right: 0, bottom: 0}
+						 }
+					  },
+					  y: {
+						color: "rgb(227,218,226)",
+						 title: {
+							display: true,
+							text: 'Billions USD',
+							color: "rgb(227,218,226)",
+							font: {
+							  family: 'Rubik',
+							  size: 20,
+							  style: 'normal',
+							  lineHeight: 1.2
+							},
+							padding: {top: 30, left: 0, right: 0, bottom: 0}
+						 }
+					  }
+					}
+				}				
 			});
 		}) 
 	}) 
