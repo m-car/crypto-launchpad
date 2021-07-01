@@ -77,12 +77,29 @@ fetch(queryURL)
 
 // }
 
+// defines function called in the submission event listener
+// redirects to coin specific page with query string carrying user input
 var userSearchEl = document.getElementById('userSearch');
 function redirectWithSearch() {
     var search = userSearchEl.value.trim();
+    search = search.split(' ').join('-')
     if (search) {
         window.location.replace("./coin-focus.html?userSearch=" + search)
     } else {
+        alert('somethings wrong')
         //some kind of modal asking the user to input an actual value
     }
 }
+
+// function fetchAll() {
+//     fetch('https://api.coingecko.com/api/v3/coins/list?include_platform=false')
+//     .then(function(response){
+//         console.log(response.status);
+//         if(response.ok){
+//             response.json().then(function(data){
+//                 console.log(data);
+//         } else {
+//             UIkit.modal('#modal-center').show();
+//         }
+// }
+// }
