@@ -56,9 +56,12 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + s
 //on page load. For testing
 getNews("dogecoin");
 
+// defines function called in the submission event listener
+// redirects to coin specific page with query string carrying user input
 var userSearchEl = document.getElementById('userSearch');
 function redirectWithSearch() {
     var search = userSearchEl.value.trim();
+    search = search.split(' ').join('-')
     if (search) {
         window.location.replace("./coin-focus.html?userSearch=" + search)
     } else {
@@ -80,3 +83,4 @@ $("#pullAllBtn").on('click', function() {
     alert('this button works')
     // Functions to pull all coins go here
 }); 
+
