@@ -76,6 +76,7 @@ $("#userInput").on('submit', function(event) {
 });
 
 $("#pullAllBtn").on('click', function() {
+    $("#coin-list").show();
     showPopularCurrencies();
     // Functions to pull all coins go here
 }); 

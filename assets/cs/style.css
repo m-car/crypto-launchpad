@@ -16,3 +16,24 @@
     margin: 10px 0 0 0;
     border-radius: 10px;
 }
+
+.search-parameters {
+    padding: 10px;
+    margin: 20px 0 0 0;
+    color: white;
+    float: right;
+}
+
+.sub-heading {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 10px 0 10px 0;
+    width: max-content;
+    color: rgb(255, 242, 66);
+    /* border: red dashed; */
+}
+.search-parameters label, a {
+    padding: 1px;
+    margin: 1px;
+    color: white;
+}
