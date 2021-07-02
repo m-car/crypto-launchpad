@@ -108,7 +108,7 @@ function showPopularCurrencies(){
     var params = new URLSearchParams()
     params.append("vs_currency", "usd")
     params.append("order", sort+order)
-    params.append("per_page", "50")
+    params.append("per_page", "52")
     params.append("page", page)
     params.append("price_chage_percentage", "24h")
     
