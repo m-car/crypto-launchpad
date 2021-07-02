@@ -68,12 +68,12 @@ body {
     color: rgb(255, 242, 66);
     /* border: red dashed; */
 }
-.search-parameters label, a {
+.search-parameters label, .search-parameters a {
     padding: 1px;
     margin: 1px;
     color: white;
 }
 
-.news-link {
+a .news-link {
     color: blue;
 }
