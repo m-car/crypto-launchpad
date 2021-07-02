@@ -1,4 +1,4 @@
-.customPadding {
+.customPaddingRight {
     padding-right: 10%;
 }
 
@@ -6,10 +6,30 @@
     display: inline;
 }
 
+.customPaddingTop {
+    padding-top: 0px;
+}
+
 @media screen and (min-width: 960px){
     #search-graph-container {
         display: flex;
     }
+
+    #focus-graph-container {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .cardBodyContainer {
+        line-height: 3;
+    }
+}
+.cardBodyContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -42,4 +62,8 @@
     padding: 1px;
     margin: 1px;
     color: white;
+}
+
+#newsLink {
+    color: blue;
 }

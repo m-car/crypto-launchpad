@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="./assets/cs/style.css"/>
 </head>
@@ -45,25 +46,30 @@
         </nav>
     </div>
     <!-- Coin Card -->
-    <div class="uk-child-width-1-2@m uk-margin-bottom" uk-grid>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover">
-                <div class="uk-card-media-top">
+    <div>
+        <div class="uk-card-body">
+            <img id="coinImage" src="#" alt="coin logo" class="uk-align-center">
+        </div>
+        <div id="focus-graph-container" class="uk-child-width-1-2@m uk-grid-match" uk-grid>
+            <div class="uk-card uk-card-default uk-margin-bottom uk-card-hover">
+                <!-- <div class="uk-card-media-top">
                     <img id="coinImage" src="#" alt="coin logo" class="uk-align-center">
-                </div>
-                <div class="uk-card-body">
-                    <h3 id="coin-name" class="uk-card-title"></h3>
-                    <button id="" class="">Favorite</button>
+                </div> -->
+                <div class="uk-card-body cardBodyContainer customPaddingTop">
+                    <div>
+                        <h3 id="coin-name" class="uk-card-title"></h3>
+                        <button id="coinFocusBtn" class="uk-button-secondary uk-padding-small">Favorite</button>
+                    </div>
                     <p id="description"></p>
                     <div uk-grid class="uk-grid-small uk-width-1-1">
-                        <ul class="uk-width-1-2">
+                        <ul class="uk-width-1-2 coinFocusList">
                             <li id="price"></li>
                             <li id="high24"></li>
                             <li id="low24"></li>
                             <li id="marketCap"></li>
                             <li id="priceChange1h"></li>
                         </ul>
-                        <ul class="uk-width-1-2">
+                        <ul class="uk-width-1-2 coinFocusList">
                             <li id="ath"></li>
                             <li id="athChange"></li>
                             <li id="atl"></li>
@@ -71,6 +77,15 @@
                             <li id="priceChange1y"></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-secondary uk-margin-bottom uk-card-large uk-card-body uk-light">
+                    <h3 class="uk-card-title">Searched Coin:<span id="searchedCoin">-</h3>
+
+                    <div class="uk-card-media-left uk-cover-container">
+                        <canvas id="focusChart" width="400" height="200"></canvas>
+                   </div>
                 </div>
             </div>
         </div>
@@ -98,7 +113,7 @@
   ></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.0/dist/js/uikit-icons.min.js"></script>
-<!-- <script src="./assets/js/script.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
 <script src="./assets/js/coinFocus.js"></script>
 </body>
 </html>
