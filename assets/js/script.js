@@ -97,8 +97,17 @@ var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
 $("#favoriteBtn").click(function(event) {
     event.preventDefault();
     var search = $("#userSearch").val().trim()
-    favsList.push(search);
+    if (favsList.indexOf(search) > -1) {
+        //In the array!
+        // alert("this is already in the favs list");
+        return;
+    } else {
+        //Not in the array
+        // alert("this is not in the favs list")
+        favsList.push(search);
     localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
+    }
+    
     // alert(localStorage.getItem("FavoriteCoins"));
     
     getFavs();
