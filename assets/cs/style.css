@@ -20,6 +20,10 @@ body {
     padding-top: 0px;
 }
 
+#favBtn {
+    
+}
+
 @media screen and (min-width: 960px){
     #search-graph-container {
         display: flex;
