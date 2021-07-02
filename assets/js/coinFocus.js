@@ -141,10 +141,17 @@ var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
 $("#coinFocusBtn").click(function(event) {
     event.preventDefault();
     var coin = window.location.search.split('=')[1];
-    favsList.push(coin);
-    localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
+    coin = coin.split(' ').join('-')
+    if (favsList.indexOf(coin) > -1) {
+        //In the array!
+        // alert("this is already in the favs list");
+        return;
+    } else {
+        favsList.push(coin);
+        localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
     
     getFavs();
+    }
 });
 
 function getFavs(){
