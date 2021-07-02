@@ -62,7 +62,6 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + s
 }
 
 
-getNews("dogecoin");
 
 // defines function called in the submission event listener
 // redirects to coin specific page with query string carrying user input
@@ -95,7 +94,6 @@ $("#pullAllBtn").on('click', function() {
 
 
 var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
-console.log(favsList);
 $("#favoriteBtn").click(function(event) {
     event.preventDefault();
     var search = $("#userSearch").val().trim()
@@ -103,86 +101,93 @@ $("#favoriteBtn").click(function(event) {
     localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
     alert(localStorage.getItem("FavoriteCoins"));
     
-   getFavs();
+    getFavs();
 });
 
 function getFavs(){
     var favorites = JSON.parse(localStorage.getItem("FavoriteCoins"))
-    console.log(favorites);
+    document.getElementById('favorites').innerHTML = '';
     for (var i =0; i <favorites.length; i++){
         // console.log(favorites[i].name)
         var favLi = $("<li>");
-        favLi.text(favorites[i]);
+        var linkEl = $("<a>");
+        linkEl.text(favorites[i]);
+        linkEl.attr('href', './coin-focus.html?userSearch=' + favorites[i])
         $("#favorites").append(favLi);
-
-    }}
-
-var base_url = "https://api.coingecko.com/api/v3"
-var result = document.getElementById("result")
-
-function showPopularCurrencies(){
-    console.log("searching popular currencies")
-
-    var query = new URLSearchParams(location.search)
-    var page = query.get("page") || 1
-
-    var sort = document.getElementById("sort").value
-    var order = document.getElementById("order").value
-    
-    var params = new URLSearchParams()
-    params.append("vs_currency", "usd")
-    params.append("order", sort+order)
-    params.append("per_page", "52")
-    params.append("page", page)
-    params.append("price_chage_percentage", "24h")
-    
-    fetch(base_url+"/coins/markets?"+params)
-    .then(function(response){
-    console.log(response.status);
-    return response.json();
-    })
-    .then(function(data){
-        console.log(data); 
-        displayCoins(data);
-    })
-}
-
-function displayCoins(data){
-    var d = data
-
-    result.innerHTML = ""
-
-    d.forEach(function(cryptocurrency){
-        var div = createCard(cryptocurrency);
-        result.append(div)
-    })
-
-    function createCard(cryptocurrency){
-        var div = document.createElement("div");
-        div.setAttribute("class","card");
-        div.setAttribute("id",cryptocurrency["id"])
-        var img = document.createElement("img");
-        img.setAttribute("src", cryptocurrency.image)
-        var details = document.createElement("div");
-        details.innerText =  cryptocurrency.name
-
-        var price = document.createElement("div");
-        price.innerText = "$ "+Math.round(100*cryptocurrency.current_price)/100
-        var priceChange = document.createElement("div");
-        priceChange.innerText = "(" + Math.round(100*cryptocurrency.price_change_percentage_24h)/100 + "%)"
-        priceChange.style.fontSize = "13px"
-                
-        if (cryptocurrency.price_change_percentage_24h > 0) {
-            price.style.color = "green"
-            priceChange.style.color = "green"
-        }
-        else {
-            price.style.color = "red"
-            priceChange.style.color = "red"
-        }
-        div.append(img,details,price,priceChange);
-        return div
-
+        favLi.append(linkEl);
+        
     }
 }
-
+    
+    var base_url = "https://api.coingecko.com/api/v3"
+    var result = document.getElementById("result")
+    
+ function showPopularCurrencies(){
+        console.log("searching popular currencies")
+        
+        var query = new URLSearchParams(location.search)
+        var page = query.get("page") || 1
+        
+        var sort = document.getElementById("sort").value
+        var order = document.getElementById("order").value
+        
+        var params = new URLSearchParams()
+        params.append("vs_currency", "usd")
+        params.append("order", sort+order)
+        params.append("per_page", "52")
+        params.append("page", page)
+        params.append("price_chage_percentage", "24h")
+        
+        fetch(base_url+"/coins/markets?"+params)
+        .then(function(response){
+            console.log(response.status);
+            return response.json();
+        })
+        .then(function(data){
+            console.log(data); 
+            displayCoins(data);
+        })
+    }
+    
+    function displayCoins(data){
+        var d = data
+        
+        result.innerHTML = ""
+        
+        d.forEach(function(cryptocurrency){
+            var div = createCard(cryptocurrency);
+            result.append(div)
+        })
+        
+        function createCard(cryptocurrency){
+            var div = document.createElement("div");
+            div.setAttribute("class","card");
+            div.setAttribute("id",cryptocurrency["id"])
+            var img = document.createElement("img");
+            img.setAttribute("src", cryptocurrency.image)
+            var details = document.createElement("div");
+            details.innerText =  cryptocurrency.name
+            
+            var price = document.createElement("div");
+            price.innerText = "$ "+Math.round(100*cryptocurrency.current_price)/100
+            var priceChange = document.createElement("div");
+            priceChange.innerText = "(" + Math.round(100*cryptocurrency.price_change_percentage_24h)/100 + "%)"
+            priceChange.style.fontSize = "13px"
+            
+            if (cryptocurrency.price_change_percentage_24h > 0) {
+                price.style.color = "green"
+                priceChange.style.color = "green"
+            }
+            else {
+                price.style.color = "red"
+                priceChange.style.color = "red"
+            }
+            div.append(img,details,price,priceChange);
+            return div
+            
+        }
+    }
+    
+    
+    getNews("dogecoin");
+    getFavs();
