@@ -42,11 +42,11 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypt
     //NY Times Fetch
     fetch(queryURL)
     .then(function(response){
-        
         return response.json();
     })
     .then(function(data){
         $(".news-feeder").empty()
+        console.log(data);
         for(var i =0; i< data.response.docs.length && i < 5; i++){
             // turn h2 into the link 
             var newsDiv = $("<div>")
