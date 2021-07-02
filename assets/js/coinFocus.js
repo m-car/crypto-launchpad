@@ -83,8 +83,8 @@ function appendData(data) {
 function getSearch() {
     var queryString = document.location.search;
     var userSearch = queryString.split('=')[1];
-    console.log(userSearch)
-    console.log(userSearch)
+    // console.log(userSearch)
+    // console.log(userSearch)
     var cryptoAPI = "https://api.coingecko.com/api/v3/coins/" + userSearch + "?localization=false&tickers=true&market_data=true&community_data=true&developer_data=false&sparkline=false"
     fetchCoin(cryptoAPI);
     getNews(userSearch);
@@ -99,10 +99,10 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + s
     //NY Times Fetch
     fetch(queryURL)
     .then(function(response){
-        console.log(response.status);
+        // console.log(response.status);
         if(response.ok){
             response.json().then(function(data){
-                console.log(data);
+                // console.log(data);
                 appendNews(data);
         })
         } else {
@@ -131,3 +131,30 @@ function appendNews (data) {
 // runs the function to start the cascade of 
 // retrieving, creating, requesting, receiving, and appending
 getSearch();
+
+
+var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
+console.log(favsList);
+$("#favoriteBtn").click(function(event) {
+    event.preventDefault();
+
+    favsList.push($("#coin-name").text());
+    localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
+    alert(localStorage.getItem("FavoriteCoins"));
+    
+   getFavs();
+});
+
+function getFavs(){
+    var favorites = JSON.parse(localStorage.getItem("FavoriteCoins"))
+    console.log(favorites);
+    for (var i =0; i <favorites.length; i++){
+        // console.log(favorites[i].name)
+        var favLi = $("<li>")
+        favLi.text(favorites[i]);
+        $("#favorites").append(favLi);
+
+    }
+
+}  
+getFavs()
