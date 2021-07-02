@@ -98,8 +98,8 @@ var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
 console.log(favsList);
 $("#favoriteBtn").click(function(event) {
     event.preventDefault();
-
-    favsList.push($("#coin-name").text());
+    var search = $("#userSearch").val().trim()
+    favsList.push(search);
     localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
     alert(localStorage.getItem("FavoriteCoins"));
     
