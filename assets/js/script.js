@@ -99,7 +99,7 @@ $("#favoriteBtn").click(function(event) {
     var search = $("#userSearch").val().trim()
     favsList.push(search);
     localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
-    alert(localStorage.getItem("FavoriteCoins"));
+    // alert(localStorage.getItem("FavoriteCoins"));
     
     getFavs();
 });
