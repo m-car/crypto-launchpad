@@ -31,11 +31,8 @@
                         <a href="#">Favorites</a>
                         <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
                                 <div>
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li><a href="#">Faves</a></li>
-                                        <li><a href="#">Faves</a></li>
-                                        <li><a href="#">Faves</a></li>
-                                        <li><a href="#">Faves</a></li>
+                                    <ul id="favorites" class="uk-nav uk-navbar-dropdown-nav">
+                                     <li>favs list</li>
                                     </ul>
                                 </div>
                         </div>
@@ -54,12 +51,17 @@
             <div class="uk-card uk-card-default uk-margin-bottom uk-card-hover">
                 <!-- <div class="uk-card-media-top">
                     <img id="coinImage" src="#" alt="coin logo" class="uk-align-center">
+                </div>
+                <div class="uk-card-body">
+                    <h3 id="coin-name" class="uk-card-title"></h3>
+                    <button type="button" id="favoriteBtn" class="">Favorite</button>
                 </div> -->
                 <div class="uk-card-body cardBodyContainer customPaddingTop">
                     <div>
                         <h3 id="coin-name" class="uk-card-title"></h3>
                         <button id="coinFocusBtn" class="uk-button-secondary uk-padding-small">Favorite</button>
                     </div>
+
                     <p id="description"></p>
                     <div uk-grid class="uk-grid-small uk-width-1-1">
                         <ul class="uk-width-1-2 coinFocusList">
