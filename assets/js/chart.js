@@ -29,6 +29,12 @@ function setup(){
 			$("#trending-coin").text(" " + feature.name);
 
 			var ctx = document.getElementById("myChart");
+			console.log(Chart.defaults);
+			Chart.defaults.global.defaultFontColor = "rgb(250,250,251)";
+			Chart.defaults.global.defaultFontFamily = 'Titillium Web';
+			Chart.defaults.global.defaultFontSize = 14;
+
+
 			var myChart = new Chart(ctx,{
 				
 				type: 'bar',
@@ -39,56 +45,18 @@ function setup(){
 							label: 'Market Cap',
 							data: [feature.market_data.market_cap.usd],
 							backgroundColor: "rgb(252,250,100)",
-							borderColor: "rgb(252,250,100)",
-							barPercentage: 0.5,
-						
-
+							borderColor: "rgb(244,210,39)",
+							borderWidth: 8,
 						}, {
 							label: 'Total Volume',
 							data: [feature.market_data.total_volume.usd],
 							backgroundColor: "rgb(79,167,230)",
-							borderColor: "rgb(79,167,230)", 
-							borderWidth: 4,
-							barPercentage: 0.5,
+							borderColor: "rgb(151,204,244)", 
+							borderWidth: 5,
 						}
 
 					]
-				},
-				options: {
-					responsive: true,
-					scales: {
-					  x: {
-						 color: "rgb(227,218,226)",
-						 title: {
-							display: true,
-							text: 'Market Data',
-							color: "rgb(227,218,226)",
-							font: {
-							  family: 'Rubik',
-							  size: 20,
-							  weight: 'bold',
-							  lineHeight: 1.2,
-							},
-							padding: {top: 20, left: 0, right: 0, bottom: 0}
-						 }
-					  },
-					  y: {
-						color: "rgb(227,218,226)",
-						 title: {
-							display: true,
-							text: 'Billions USD',
-							color: "rgb(227,218,226)",
-							font: {
-							  family: 'Rubik',
-							  size: 20,
-							  style: 'normal',
-							  lineHeight: 1.2
-							},
-							padding: {top: 30, left: 0, right: 0, bottom: 0}
-						 }
-					  }
-					}
-				}				
+				},		
 			});
 		}) 
 	}) 
