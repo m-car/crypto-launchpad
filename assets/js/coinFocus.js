@@ -9,6 +9,7 @@ function fetchCoin(link) {
                 appendData(data)
 
                 $("#searchedCoin").text(" " + data.name);
+                $("#current-price").text("$" + data.market_data.current_price.usd);
 
 			    var ctx = document.getElementById("focusChart");
                 Chart.defaults.global.defaultFontColor = "rgb(250,250,251)";

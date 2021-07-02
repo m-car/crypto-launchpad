@@ -75,6 +75,15 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 
+.uk-card-price {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.uk-badge {
+    font-size: large;
+    padding: 15px;
+}
+
 .search-parameters {
     padding: 10px;
     margin: 20px 0 0 0;

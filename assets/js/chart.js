@@ -27,6 +27,8 @@ function setup(){
 			console.log(feature);	
 
 			$("#trending-coin").text(" " + feature.name);
+			$("#current-price").text("$" + feature.market_data.current_price.usd);
+
 
 			var ctx = document.getElementById("myChart");
 			console.log(Chart.defaults);
