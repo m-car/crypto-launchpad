@@ -45,22 +45,25 @@
             </header>
             <section>
 					<div class="uk-child-width-1-2@m  uk-child-width-1-1" >
-     	                <div class="uk-card uk-card-default uk-margin-bottom uk-card-body">
+     	                <div class="uk-card uk-margin-bottom uk-card-body customCard">
                             <h3 class="uk-card-title uk-margin-left">Search Coins!</h3>
                                 <form id="userInput">
                                     <div class="uk-margin-left uk-flex-inline uk-width-1-1">
                                         <input id="userSearch" class="uk-input uk-width-2-3 uk-form-large" type="text" placeholder="Search">
                                         <button class="uk-button uk-width-1-3 uk-button-default">Find Coin</button>
                                     </div>
-                                </form>
-                                <br>
-                            <p class = "uk-margin-left">
-                     	    <button id="pullAllBtn" class="uk-button uk-button-secondary uk-button-large uk-width-1-1">Pull All Coins</button>
-                            </p>
-                        </div>
+											</form>
+											<br>
+											<p class = "uk-margin-left">
+												<a href="#coin-list"><button id="pullAllBtn" class="uk-button uk-button-secondary uk-button-large uk-width-1-1">Pull All Coins</button></a>
+											</p>
+										</div>               
+                
+          
 						<div>
 							<div class="uk-card uk-card-secondary uk-margin-bottom uk-card-large uk-card-body uk-light">
-								<h3 class="uk-card-title">Trending Coin:<span id="current-price">-</h3>
+								<h3 class="uk-card-title">Trending Coin:<span id="trending-coin">-</h3>
+
 								<div class="uk-card-media-left uk-cover-container">
 									<canvas id="myChart" width="400" height="200"></canvas>
 							   </div>
@@ -68,14 +71,43 @@
 						</div>
 				   </div>
             </section>
-            <section id="coinList">
-                coin list
+
+            <section id="coin-list" style="display: none;">
+					<div>
+						<div class="search-parameters">
+
+							<label for="sort">
+								 Sort By:
+								 <select name="sort" id="sort" onchange="showPopularCurrencies()">
+									  <option value="market_cap">Sort By</option>
+									  <option value="market_cap">Market Cap</option>
+									  <option value="gecko">Gecko</option>
+									  <option value="volume">Volume</option>
+									  <option value="id">ID</option>
+								 </select>
+							</label>
+				 
+							<label for="order">
+								 Order:
+								 <select name="order" id="order" onchange="showPopularCurrencies()">
+									  <option value="_desc">Order</option>
+									  <option value="_asc">Ascending</option>
+									  <option value="_desc">Descending</option>
+								 </select>
+							</label>
+				 
+					  </div>
+				 
+					  <div class="sub-heading">Popular Currencies</div>
+
+					  <div id="result" class="uk-child-width-1-2@m uk-grid-match" uk-grid></div>
+					</div>
             </section>
 
 
-            <div class="uk-card uk-card-default uk-card-body uk-card-hover uk-margin-bottom uk-width-1-2@m">
+            <div class="uk-card uk-card-body uk-card-hover uk-margin-bottom uk-width-1-2@m customCard">
 
-                <section id="news" class = "news-feeder">
+                <section id="news" class = "news-feeder ">
                     <h2 id="heading"></h2>
                     <p id="abstract"></p>
                     <a id="newsLink" href=""></a>
