@@ -28,7 +28,7 @@ var trending = fetch(cryptoAPI)
    for (var i = 0; i < data.length && i <10; i++){
        trending.push(data[i].id);
     }
-    console.log(trending.length); 
+    // console.log(trending.length); 
     getNews(trending[getRandom(trending.length)]) ;
     return trending;
 });
@@ -37,7 +37,7 @@ var trending = fetch(cryptoAPI)
 
 function getNews(search){
 
-var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search + "&api-key="+ newsKEY;
+var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto" + search + "&api-key="+ newsKEY;
 
     //NY Times Fetch
     fetch(queryURL)
@@ -92,3 +92,25 @@ $("#pullAllBtn").on('click', function() {
     // Functions to pull all coins go here
 }); 
 
+var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
+console.log(favsList);
+$("#favoriteBtn").click(function(event) {
+    event.preventDefault();
+
+    favsList.push($("#coin-name").text());
+    localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
+    alert(localStorage.getItem("FavoriteCoins"));
+    
+   getFavs();
+});
+
+function getFavs(){
+    var favorites = JSON.parse(localStorage.getItem("FavoriteCoins"))
+    console.log(favorites);
+    for (var i =0; i <favorites.length; i++){
+        // console.log(favorites[i].name)
+        var favLi = $("<li>");
+        favLi.text(favorites[i]);
+        $("#favorites").append(favLi);
+
+    }}
