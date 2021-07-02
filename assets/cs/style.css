@@ -1,5 +1,14 @@
 body {
     background-color: rgb(43,54,61);
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.title {
+    font-family: 'Tourney', cursive;
+    font-weight: 500;
+    font-size: 75px;
+    margin: 5px;
+
 }
 
 .customPaddingRight {
@@ -20,8 +29,13 @@ body {
     padding-top: 0px;
 }
 
-#favBtn {
-    
+.uk-navbar-nav a {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.search-coins {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 700;
 }
 
 @media screen and (min-width: 960px){
@@ -57,6 +71,10 @@ body {
     border-radius: 10px;
 }
 
+.uk-card-title {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .search-parameters {
     padding: 10px;
     margin: 20px 0 0 0;
@@ -80,4 +98,8 @@ body {
 
 a .news-link {
     color: blue;
+}
+
+.new-feeder h2 {
+    font-family: 'Titillium Web', sans-serif;
 }

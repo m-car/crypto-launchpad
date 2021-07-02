@@ -9,9 +9,13 @@ function fetchCoin(link) {
                 appendData(data)
 
                 $("#searchedCoin").text(" " + data.name);
-                var randomColor = ["rgb(252,250,100)", "rgb(79,167,230)", "rgb(176,23,41)", "rgb(24,159,118)", "rgb(162,118,255)"];
+
 			    var ctx = document.getElementById("focusChart");
-			    var myChart = new Chart(ctx,{
+                Chart.defaults.global.defaultFontColor = "rgb(250,250,251)";
+			    Chart.defaults.global.defaultFontFamily = 'Titillium Web';
+			    Chart.defaults.global.defaultFontSize = 14;
+			    
+                var myChart = new Chart(ctx,{
 				
 				type: 'bar',
 				data: {
@@ -21,16 +25,16 @@ function fetchCoin(link) {
 							label: 'Market Cap',
 							data: [data.market_data.market_cap.usd],
 							backgroundColor:"rgb(252,250,100)",
-							borderColor: "rgb(252,250,100)",
-							borderDash: [5, 5],
+							borderColor: "rgb(244,210,39)",
+							borderWidth: 8,
 						
 
 						}, {
 							label: 'Total Volume',
 							data: [data.market_data.total_volume.usd],
 							backgroundColor: "rgb(79,167,230)",
-							borderColor: "rgb(79,167,230)", 
-							borderWidth: 4
+							borderColor: "rgb(151,204,244)", 
+							borderWidth: 5,
 						}
 
 					]
