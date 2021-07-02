@@ -137,29 +137,29 @@ function appendNews (data) {
 // retrieving, creating, requesting, receiving, and appending
 getSearch();
 
-
 var favsList= JSON.parse(localStorage.getItem("FavoriteCoins")) || [];
-console.log(favsList);
-$("#favoriteBtn").click(function(event) {
+$("#coinFocusBtn").click(function(event) {
     event.preventDefault();
-
-    favsList.push($("#coin-name").text());
+    var coin = window.location.search.split('=')[1];
+    favsList.push(coin);
     localStorage.setItem('FavoriteCoins', JSON.stringify(favsList));
-    alert(localStorage.getItem("FavoriteCoins"));
     
-   getFavs();
+    getFavs();
 });
 
 function getFavs(){
     var favorites = JSON.parse(localStorage.getItem("FavoriteCoins"))
-    console.log(favorites);
+    document.getElementById('favorites').innerHTML = '';
     for (var i =0; i <favorites.length; i++){
         // console.log(favorites[i].name)
-        var favLi = $("<li>")
-        favLi.text(favorites[i]);
+        var favLi = $("<li>");
+        var linkEl = $("<a>");
+        linkEl.text(favorites[i]);
+        linkEl.attr('href', './coin-focus.html?userSearch=' + favorites[i])
         $("#favorites").append(favLi);
-
+        favLi.append(linkEl);
+        
     }
+}
 
-}  
 getFavs()
