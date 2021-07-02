@@ -36,8 +36,8 @@ var trending = fetch(cryptoAPI)
 
 
 function getNews(search){
-
-var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypto" + search + "&api-key="+ newsKEY;
+// event.preventDefault();
+var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search + "&api-key="+ newsKEY;
 
     //NY Times Fetch
     fetch(queryURL)
@@ -45,7 +45,7 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypt
         return response.json();
     })
     .then(function(data){
-        $(".news-feeder").empty()
+        // $(".news-feeder").empty()
         console.log(data);
         for(var i =0; i< data.response.docs.length && i < 5; i++){
             // turn h2 into the link 
@@ -62,7 +62,7 @@ var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=crypt
 }
 
 
-
+getNews("dogecoin");
 
 // defines function called in the submission event listener
 // redirects to coin specific page with query string carrying user input
