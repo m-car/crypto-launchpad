@@ -112,3 +112,7 @@ a .news-link {
 .new-feeder h2 {
     font-family: 'Titillium Web', sans-serif;
 }
+
+.blackTextColor {
+    color: black;
+}
