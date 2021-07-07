@@ -28,3 +28,5 @@ This was a group collaboration with <a href="https://github.com/vivicowan">Vivia
 <a href="https://developer.nytimes.com/apis">New York Times</a> article search API was used to fetch news articles on coins.
 
 Special Thanks to our instructor <a href="https://github.com/median-man">John Desrosier</a> and our UCSD Extension classmates.
+
+yummmmmyyyyy
