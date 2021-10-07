@@ -7,7 +7,7 @@ An app for novice crypto investors to quickly find available coins on the market
 No installation necessary. An internet browser is required. 
 
 ## Usage
-1. Point your browswer to <a href="https://m-car.github.io/crypto-launchpad/index.html">CryptoLaunch</a>.
+1. Point your browser to <a href="https://m-car.github.io/crypto-launchpad/index.html">CryptoLaunch</a>.
 2. View a trending coin's news and market stats on the homepage.
 <img src="assets/images/homepage.PNG"/>
 
